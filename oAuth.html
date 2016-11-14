@@ -22,13 +22,13 @@ const oAuthKeyID = 201385653639391;
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      // NOTE: NOTE: NOTE: send off ajax request here - this is an example from my previous project. Must re-do ajax call
-    function getTopTrack(artist) {
-      $.get('https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' + artist + '&api_key=' + key + '&format=json', function(data) {
-      var topTrackName = data.toptracks.track[1].name;
-      var topTrackUrl = data.toptracks.track[1].url;
-      });
-    };
+    //   // NOTE: NOTE: NOTE: send off ajax request here - this is an example from my previous project. Must re-do ajax call
+    // function getTopTrack(artist) {
+    //   $.get('https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' + artist + '&api_key=' + key + '&format=json', function(data) {
+    //   var topTrackName = data.toptracks.track[1].name;
+    //   var topTrackUrl = data.toptracks.track[1].url;
+    //   });
+    // };
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.

@@ -1,21 +1,29 @@
-var express = require("express");
-var app = express();
-var routes = require("./routes/index");
+var express = require("express")
+var app = express()
+var routes = require("./routes/index")
+var cookieParser = require('cookie-parser')
+var cookieSession = ('cookie-session')
+var bodyParser = require('body-parser')
 const PORT = 1337;
-
-app.use('/createProfile', routes.createProfile);
-app.use('profile', routes.profile);
-app.use('friends',routes.friends);
-app.use('upload', routes.upload);
 
 app.set("view engine", "ejs");
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
+app.use(cookieParser());
+app.use('/createProfile', routes.createProfile);
+app.use('/profile', routes.profile);
+app.use('/friends',routes.friends);
+app.use('/upload', routes.upload);
+
+
 app.get("/", function(req, res){
+	console.log('Cookies: ', req.cookies);
 	res.render("index");
 })
 
-
-
 app.listen("1337", function(){
-	console.log("Listening on port 1337")
+	console.log(`Server is listening on port ${PORT}`)
 })
