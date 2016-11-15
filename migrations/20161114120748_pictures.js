@@ -1,0 +1,64 @@
+'use strict';
+
+exports.up = function(knex) {
+  return knex.schema.createTable('pictures', function (table) {
+    table.increments();
+    table.string('image_data_uri', 4000).notNullable();
+    table.string('image_name').notNullable();
+    table.integer('user_id').notNullable().references('id').inTable('users').onDelete('CASCADE');
+    table.string('make').defaultTo('');
+    table.string('camera_model_name').defaultTo('');
+    table.string('orientation').defaultTo('');
+    table.integer('x-resolution');
+    table.integer('y-resolution');
+    table.string('resolution_unit').defaultTo('');
+    table.string('software').defaultTo('');
+    table.dateTime('date_and_time_modified');
+    table.dateTime('date_and_time_original');
+    table.dateTime('date_and_time_digitized');
+    table.string('ycbcr_positioning').defaultTo('');
+    table.string('exposure_time').defaultTo('');
+    table.float('f_number');
+    table.integer('iso_speed');
+    table.integer('exif_version');
+    table.string('components_configuration').defaultTo('');
+    table.string('exposure_bias').defaultTo('');
+    table.string('light_source').defaultTo('');
+    table.integer('sub_sec_time');
+    table.integer('sub_sec_time_original');
+    table.integer('sub_sec_time_digitized');
+    table.string('flashpix_version').defaultTo('');
+    table.string('color_space').defaultTo('');
+    table.string('exposure_mode').defaultTo('');
+    table.string('white_balance').defaultTo('');
+    table.integer('digital_zoom_ratio');
+    table.string('scene_capture_type').defaultTo('');
+    table.string('interop_index').defaultTo('');
+    table.string('interop_version').defaultTo('');
+    table.float('compressed_bits_per_pixel');
+    table.float('exposure_compensation');
+    table.float('max_aperture_value');
+    table.float('subject_distance');
+    table.string('metering_mode').defaultTo('');
+    table.string('flash').defaultTo('');
+    table.float('focal_length');
+    table.string('gps_version_id').defaultTo('');
+    table.string('gps_latitude_ref').defaultTo('');
+    table.float('gps_latitude');
+    table.string('gps_longitude_ref').defaultTo('');
+    table.float('gps_longitude');
+    table.string('gps_altitude_ref').defaultTo('');
+    table.integer('gps_altitude');
+    table.timestamp('gps_time_stamp');
+    table.string('gps_processing_method').defaultTo('');
+    table.date('gps_date_stamp');
+    table.string('compression').defaultTo('');
+    table.integer('thumbnail_offset');
+    table.integer('thumbnail_length');
+    table.timestamps(true, true);
+  });
+};
+
+exports.down = function(knex) {
+  return knex.schema.dropTable('pictures');
+};
