@@ -1,64 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+<!-- //Includes a script tag just like jquery or css - added by tommy November 14th. -->
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
 </head>
 <body>
-
-	<p>********************This will be our homepage. Make everything functional before adding css.</p>
-
-	<h1>Welcome to ultimate image hosting website</h1>
-	<h4>Login with Facebook: </h4>
-<!-- <fb:login-button scope="public_profile,email" show-faces="false" onlogin="checkLoginState();">
-</fb:login-button> -->
-
-	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-	<h3 align="center">Profile</h3>
-	<!-- <p> <a href="/snakes/hiss"/> /snakes/hiss </a></p> -->
-	<p align="center"> <a href="/profile"/> profile page </a></p>
-	<p align="center"> <a href="/friends"/> friends page </a></p>
-	<p align="center"> <a href="/upload"/> upload page </a></p>
-	<p align="center"> <a href="/createProfile"/> createProfile page </a></p>
-
-	
-	<script>
+<script>
 "use strict"
-
-//AIzaSyBxWLqOY06_YHhA4PkMGw4Mi8GZSUcxVYg
-
-
-
-
-
-
-
-
-
 
 const oAuthKeyID = 201385653639391;
 
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
-    console.log('objectivoroma' , response);
-
-    var accessToken = response.authResponse.accessToken
-
-    console.log(accessToken)
+    console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      // send off ajax request here - NOTE: this is an example from my previous project. Must re-do ajax call
-  //     	function getTopTrack(artist) {
-  // 			$.get('https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' + artist + '&api_key=' + key + '&format=json', function(data) {
-  //   		var topTrackName = data.toptracks.track[1].name;
-  //   		var topTrackUrl = data.toptracks.track[1].url;
-  // 			});
-		// };
+    //   // NOTE: NOTE: NOTE: send off ajax request here - this is an example from my previous project. Must re-do ajax call
+    // function getTopTrack(artist) {
+    //   $.get('https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' + artist + '&api_key=' + key + '&format=json', function(data) {
+    //   var topTrackName = data.toptracks.track[1].name;
+    //   var topTrackUrl = data.toptracks.track[1].url;
+    //   });
+    // };
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -124,7 +94,7 @@ const oAuthKeyID = 201385653639391;
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'WELCOME TO GEOPICS ' + response.name + '!';
+        'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>
@@ -133,10 +103,14 @@ const oAuthKeyID = 201385653639391;
   // the JavaScript SDK to present a graphical Login button that triggers
   // the FB.login() function when clicked. -->
 
+<h1>Hello</h1>
+<!-- <fb:login-button scope="public_profile,email" show-faces="false" onlogin="checkLoginState();">
+</fb:login-button> -->
+
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 
 <div id="status">
 </div>
-
 
 </body>
 </html>
