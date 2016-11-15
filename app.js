@@ -3,10 +3,10 @@ var app = express();
 var routes = require("./routes/index");
 const PORT = 1337;
 
+app.use('/profile', routes.profile);
 app.use('/createProfile', routes.createProfile);
-app.use('profile', routes.profile);
-app.use('friends',routes.friends);
-app.use('upload', routes.upload);
+app.use('/friends',routes.friends);
+app.use('/upload', routes.upload);
 
 app.set("view engine", "ejs");
 
