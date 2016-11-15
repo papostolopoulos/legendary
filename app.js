@@ -8,7 +8,7 @@ const PORT = 1337;
 
 app.use(bodyParser.urlencoded({
   extended: true
-}))
+}));
 app.use(cookieParser());
 
 app.set("view engine", "ejs");

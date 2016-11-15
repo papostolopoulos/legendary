@@ -1,0 +1,27 @@
+/*
+  ========================================
+  box sizing
+  ========================================
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*
+  ========================================
+  IDs
+  ========================================
+*/
+
+.dragBox {
+  width: 80%;
+  height: 100px;
+  margin: auto;
+  background-color: rgb(218, 223, 225);
+  border: 3px, dotted, rgb(0, 0, 0);
+}
