@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 app.set("view engine", "ejs");
 
-
+app.use('/public', express.static('public'))
 app.use('/createProfile', routes.createProfile);
 app.use('/profile', routes.profile);
 app.use('/friends',routes.friends);

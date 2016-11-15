@@ -4,7 +4,7 @@ var express = require("express")
 var router = express.Router();
 
 router.route('/').get(function(req,res){
-	res.render('../public/html/upload')
+	res.render('upload')
 	// res.send("Upload an image");
 });
 
