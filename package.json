@@ -1,0 +1,27 @@
+{
+  "name": "thomas-rulz",
+  "version": "1.0.0",
+  "description": "a thing",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgeeng/legendary.git"
+  },
+  "author": "Your Name <thomas.gregory.jameson@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgeeng/legendary/issues"
+  },
+  "homepage": "https://github.com/georgeeng/legendary#readme"
+}
