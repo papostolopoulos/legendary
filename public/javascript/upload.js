@@ -22,7 +22,9 @@ window.onload = function () {
 
     var files = e.originalEvent.dataTransfer.files;
     console.log(Array.isArray(files));
+    var imagesArr = []
     for (var i = 0; i < files.length; i++) {
+      console.log('------------FILE-----------------');
       var file = files[i];
       console.log(file);
       console.log("---------------");

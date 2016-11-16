@@ -3,8 +3,7 @@
 var express = require("express")
 var router = express.Router();
 
-
-//---------Not sure if this is needed
+//---------Multer-----------------
 var multer = require('multer');
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
