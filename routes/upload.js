@@ -25,6 +25,7 @@ router.route('/').get(function(req,res){
 
 router.post('/', upload.any(), function (req, res, next) {
 	console.log(req.files);
+	console.log(req.files[0].path);
 	res.send(req.files);
 });
 
