@@ -14,14 +14,26 @@
 
 /*
   ========================================
-  IDs
+  classes
   ========================================
 */
 
-.dragBox {
+.dropzone {
   width: 80%;
   height: 100px;
   margin: auto;
+  /*background-color: rgb(218, 223, 225);*/
+  border: 3px dashed rgb(0, 0, 0);
+}
+
+.dropzoneDrop {
   background-color: rgb(218, 223, 225);
-  border: 3px, dotted, rgb(0, 0, 0);
+}
+
+.canvas {
+  width: 80%;
+  height: 200px;
+  margin: 5px auto;
+  background-color: rgb(253, 227, 167);
+  border: 3px solid rgb(0, 0, 0);
 }

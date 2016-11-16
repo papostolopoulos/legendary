@@ -25,6 +25,15 @@ app.get("/", function(req, res){
 	res.render("index");
 })
 
+// app.use(express.bodyParser({
+//   keepExtensions: true
+// })
+// );
+//
+// app.post("*", function(req, res) {
+//   res.end(JSON.stringify(req.files) + '\n');
+// });
+
 app.listen("1337", function(){
 	console.log(`Server is listening on port ${PORT}`)
 })
