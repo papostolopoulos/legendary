@@ -26,15 +26,36 @@ window.onload = function () {
       var file = files[i];
       console.log(file);
       console.log("---------------");
-      var b64 = btoa(file);
+
       for (key in file) {
         console.log(key + ": " + file[key]);
-        console.log(b64);
 
       }
-      // upload(file);
+      toDataUrl('http://ghk.h-cdn.co/assets/cm/15/12/55091a87c39e4-0713-breville-blender-xln.jpg', function(base64Img) {
+        console.log(base64Img);
+      });
     }
   });
+
+  function toDataUrl(src, callback, outputFormat) {
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function() {
+      var canvas = document.createElement('CANVAS');
+      var ctx = canvas.getContext('2d');
+      var dataURL;
+      canvas.height = this.height;
+      canvas.width = this.width;
+      ctx.drawImage(this, 0, 0);
+      dataURL = canvas.toDataURL(outputFormat);
+      callback(dataURL);
+    };
+    img.src = src;
+    if (img.complete || img.complete === undefined) {
+      img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+      img.src = src;
+    }
+  }
 
   // function upload(file){
   //   xhr = new XMLHttpRequest();
