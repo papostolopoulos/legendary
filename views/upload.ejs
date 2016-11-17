@@ -11,7 +11,10 @@
 </head>
 <body>
   <h1>Inside the upload.ejs</h1>
-  <div class="dropzone">Drag your file here</div>
+  <form method="post" enctype="multipart/form-data">
+    <div class="dropzone">Drag your file here
+  </div>
+</form>
   <div class="canvas">
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="myimage" multiple />
