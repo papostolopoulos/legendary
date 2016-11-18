@@ -15,7 +15,7 @@ var storage = multer.diskStorage({
     }
 });
 var upload = multer({ storage: storage });
-//---------------------------
+//------------------------------------------------
 
 router.route('/').get(function(req,res){
     res.render('upload');
@@ -58,7 +58,8 @@ router.post('/', upload.any(), function (req, res, next) {
   				}
 
           if (numberHandled === req.files.length) {
-            res.send(imageExifData);
+						res.render('uploaded')
+            // res.send(imageExifData);
             incomingData(imageExifData);
             console.log('all files handled');
           }

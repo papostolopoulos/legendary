@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Your Profile</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/public/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/public/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Home</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">geoPics</h1>
+        <!-- <div class="dropzone row center">Drag your file here</div> -->
+        <div class="row center">
+          <!-- this is where the button lived -->
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="/public/iceland.jpeg" alt="Unsplashed background img 1"></div>
+  </div>
+  <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <!-- <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Paraskevas Apostolopoulos</h5>
+            <p class="light center">Paraskevas Apostolopoulos ispum dolor</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Thomas Rulz</h5>
+            <p class="light center">Thomas Jameson is basically the best</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">George Eng</h5>
+            <p class="light center">Put a map on the page</p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <!-- <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A simple tool to upload your photos</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/public/background2.jpg" alt="Unsplashed background img 2"></div>
+  </div> -->
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Create Your User Profile</h4>
+          <p class="left-align light center">Fill out the form to save your info and pictures. Next time you log in again we'll have all your photos</p>
+        </div>
+      </div>
+        <form method="POST">
+          <label for="firstName">First Name
+          <input type="text" placeholder="First Name" name="firstName" id="firstName" autofocus="autofocus">
+</label>
+          <label for="lastName">Last Name
+          <input type="text" placeholder="Last Name" name="lastName" id="lastName">
+</label>
+          <label for="email">Email
+          <input type="email" placeholder="Email" name="email" id="email">
+</label>
+          <label for="date">Birthday
+          <input type="date" placeholder="Birthday" name="date" id="date">
+</label>
+          <label for="number">Phone Number
+          <input type="number" placeholder="number" name="number" id="number">
+          </label>
+          <input id="download-button" class="btn-large waves-effect waves-light teal lighten-1" type="submit" name="submit" value="submit">
+          <input id="submit-button" class="right btn-large waves-effect waves-light teal lighten-1" type="reset" name="submit" value="reset">
+        </form>
+    </div>
+  </div>
+  <!-- <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="/public/background3.jpg" alt="Unsplashed background img 3"></div>
+  </div> -->
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">Thomas tried to lead a team of semi-talented engineers, although he couldn't quite get the project in the right direction</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"></h5>
+          <!-- <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul> -->
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="/">Home</a></li>
+            <li><a class="white-text" href="/upload">Upload a photo</a></li>
+            <!-- <li><a class="white-text" href="#!">Link 4</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by students at <a class="brown-text text-lighten-3" href="http://www.galvanize.com">Galvanize</a>
+      </div>
+    </div>
+  </footer>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/public/js/materialize.js"></script>
+  <script src="/public/js/init.js"></script>
+  </body>
+</html>
