@@ -125,6 +125,9 @@ exports.seed = function(knex) {
             'path': 'public/uploads/30894199336_11a17e43c4_o.jpg',
             'size': 34807
           }
-      ]);
+      ])
+      .then(function () {
+        return knex.raw("SELECT setval('pictures_id_seq', (SELECT MAX(id) FROM pictures));")
+      });
     }); //then
 }  //End of main function

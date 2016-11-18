@@ -23,7 +23,7 @@ app.use('/upload', routes.upload);
 app.get("/", function(req, res){
 	console.log('Cookies: ', req.cookies);
 	res.render("index");
-})
+});
 
 // app.use(express.bodyParser({
 //   keepExtensions: true

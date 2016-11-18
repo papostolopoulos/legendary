@@ -2,7 +2,9 @@
 var express = require("express")
 var router = express.Router();
 var ExifImage = require('exif').ExifImage;
-//---------Not sure if this is needed
+var incomingData = require('../putDataInTable');
+
+//---------MULTER-----------
 var multer = require('multer');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -13,80 +15,61 @@ var storage = multer.diskStorage({
     }
 });
 var upload = multer({ storage: storage });
-//----------------------------------------
+//---------------------------
+
 router.route('/').get(function(req,res){
-    res.render('upload')
-    // res.send("Upload an image");
+    res.render('upload');
 });
+
 router.post('/', upload.any(), function (req, res, next) {
-    res.send(filePath);
 
-	for (var i = 0; i < req.files.length; i++) {
-		var filePath = req.files[i].path;
-		var imageExifData = [];
-		try {
-			new ExifImage({ image : filePath }, function (error, exifData) {
-				// console.log('this is the exif data', exifData);
-				if (error) {
-					console.log('Error: ' + error.message);
-				}
-				else {
-					imageExifData.push(exifData);
-					// console.log('this is the metaData', exifData); // Do something with your data!
-				}
-			});
-		} catch (error) {
-			console.log('Error: ' + error.message);
-		}//End of the try
-	}//End of the for loop
-console.log(imageExifData);
+  var imageExifData = [];
+    var filePaths = [];
+    var numberHandled = 0;
+
+    for (let i = 0; i < req.files.length; i++) {
+      let filePath = req.files[i].path;
+
+      try {
+  			new ExifImage({ image : filePath }, function (error, exifData) {
+          numberHandled++;
+  				if (error) {
+  					console.log('Error: ' + error.message);
+  				}
+  				else {
+            var imagePrimaryData = {};
+            imagePrimaryData.originalName = req.files[i].originalname;
+            imagePrimaryData.encoding = req.files[i].encoding;
+            imagePrimaryData.mimetype = req.files[i].mimetype;
+            imagePrimaryData.destination = req.files[i].destination;
+            imagePrimaryData.filename = req.files[i].filename;
+            imagePrimaryData.path = req.files[i].path;
+            imagePrimaryData.size = req.files[i].size;
+
+            imageExifData.push({
+              "primaryData": imagePrimaryData,
+              "exifData": exifData
+            });
+            // imageExifData.push([imagePrimaryData, exifData]);
+            console.log(imageExifData[0].exifData.gps);
+            console.log(typeof imageExifData[0].exifData.gps.GPSLatitude);
+
+  					// console.log('this is the metaData', exifData); // Do something with your data!
+  				}
+
+          if (numberHandled === req.files.length) {
+            res.send(imageExifData);
+            incomingData(imageExifData);
+            console.log('all files handled');
+          }
+  			});
+  		} catch (error) {
+  			console.log('Error: ' + error.message);
+  		}//End of the try
+    }//End of the for loop
+
+    console.log('loop finished');
 
 });
-
-
-//---Functions for data extractions---
-function imageDataExtraction1(reqData) {
-	var imageDataArr = [];
-	var uploadImagesData = reqData.files;
-	for (let i = 0; i < uploadImagesData.length; i++) {
-		imageDataArr.push(uploadImagesData[i]);
-	}
-	return imageDataArr;
-}
-
-//---NOT NEEDED---
-// function toDataUrl(url, callback) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.responseType = 'blob';
-//   xhr.onload = function() {
-//     var reader = new FileReader();
-//     reader.onloadend = function() {
-//       callback(reader.result);
-//     }
-//     reader.readAsDataURL(xhr.response);
-//   };
-//   xhr.open('GET', url);
-//   xhr.send();
-// }
-
-// function toDataUrl(src, callback, outputFormat) {
-//   var img = new Image();
-//   img.crossOrigin = 'Anonymous';
-//   img.onload = function() {
-//     var canvas = document.createElement('CANVAS');
-//     var ctx = canvas.getContext('2d');
-//     var dataURL;
-//     canvas.height = this.height;
-//     canvas.width = this.width;
-//     ctx.drawImage(this, 0, 0);
-//     dataURL = canvas.toDataURL(outputFormat);
-//     callback(dataURL);
-//   };
-//   img.src = src;
-//   if (img.complete || img.complete === undefined) {
-//     img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-//     img.src = src;
-//   }
-// }
 
 module.exports = router;
